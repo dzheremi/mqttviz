@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Spotify Authentication</title>
+  </head>
+  <body>
+    Redirecting to Spotify Login...
+    <script>
+      function loginRedirect() {
+        var clientId = '{{.ClientID}}';
+        var clientSecret = '{{.ClientSecret}}';
+        var redirectURI = encodeURIComponent('{{.RedirectURI}}');
+        var uri = 'https://accounts.spotify.com/authorize?response_type=code&client_id=' + clientId + '&scope=user-read-playback-state&redirect_uri=' + redirectURI;
+        document.location.href = uri;
+      }
+      setTimeout(loginRedirect(), 3000);
+    </script>
+  </body>
+</html>
